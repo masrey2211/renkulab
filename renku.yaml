@@ -1,0 +1,14 @@
+version: 1
+project:
+  name: lscpu-check
+  description: "Renku session lscpu"
+
+sessions:
+  lscpu-session:
+    image:
+      build:
+        context: .
+    resources:
+      cpu: 1
+      memory: 1Gi
+    command: ["/start.sh"]
