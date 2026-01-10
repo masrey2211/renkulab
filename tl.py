@@ -337,3 +337,27 @@ def start_checking(chat_id):
                 password = line.strip().split(':')[1]
                 future = executor.submit(get_values, email, password, chat_id)
                 futures.append(future)
+            else:
+                pass
+        except Exception as e:
+            with lock:
+                check_results[chat_id]['bad'] += 1
+            update_status_message(chat_id)
+    for future in futures:
+        try:
+            future.result()
+        except Exception as e:
+            print(f"Exception in thread: {e}")
+            with lock:
+                check_results[chat_id]['bad'] += 1
+            update_status_message(chat_id)
+
+
+    executor.shutdown(wait=True)
+    bot.send_message(chat_id, "The inspection has been completed...")
+print('bot is work...')
+bot.enable_save_next_step_handlers(delay=2)
+
+bot.load_next_step_handlers()
+
+bot.infinity_polling()
