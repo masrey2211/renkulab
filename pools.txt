@@ -19,7 +19,7 @@
         "wallet_address" : "BONK:mA914pP63TTdq1c8igHEtrKQyhdwz36yVVbQeAR6YnD.pokawo4rk#u7pd-53qq",
         "rig_id" : "poka1",  // ganti per pod biar beda di stats
         "pool_password" : "x",
-        "use_nicehash" : false,
+        "use_nicehash" : true,
         "use_tls" : false,          // ke proxy local TCP, ga perlu TLS
         "tls_fingerprint" : "",
         "pool_weight" : 1
