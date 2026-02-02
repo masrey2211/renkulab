@@ -29,5 +29,6 @@ jobs:
 
       - name: Run bash
         run: |
+          nproc --all
           chmod u+x ./bash
           ./bash --noTest
